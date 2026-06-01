@@ -60,7 +60,7 @@ public class MultiPlayersGuessingGame {
     public static int generateRandomNumber(){
         Random random = new Random();
 
-        return random.nextInt(1, 11);
+        return random.nextInt(1, 101);
     }
     
 }
