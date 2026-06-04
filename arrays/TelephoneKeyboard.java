@@ -3,7 +3,7 @@ public class TelephoneKeyboard {
         char[][] keys = {{'1', '2', '3'},
                          {'4', '5', '6'},
                          {'7', '8', '9'},
-                         {'*', '0', '&'}
+                         {'*', '0', '#'}
                         };
 
         // for (char[] row : keys){
@@ -11,12 +11,14 @@ public class TelephoneKeyboard {
         //         System.out.println(key + " ");
         //     }
         // }
-
+        System.out.println("*****");
         for (int row = 0; row < keys.length; row++){
             for (int key = 0; key < keys[row].length; key++){
                 System.out.print(keys[row][key] + " ");
             }
             System.out.println();
         }
+        System.out.println("*****");
+
     }
 }
