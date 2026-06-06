@@ -5,19 +5,31 @@ public class TenOOPMultipleQuestions {
         Scanner scanner = new Scanner(System.in);
         char[] answers = {'B', 'B', 'D', 'C', 'C', 'B', 'D', 'C', 'B', 'B'};
         char choice;
-        int score;
+        int score = 0;
 
         System.out.println("*************************************************************************************************\n");
-        System.out.println("   OOP IN JAVA MULTIPLE CHOICE QUESTIONS   ");
+        System.out.println("   OOP IN JAVA MULTIPLE CHOICE QUESTIONS 💠  \n");
         System.out.println("*************************************************************************************************\n");
 
         for(int question = 0; question < answers.length; question++){
             displayQuestion(question);
             displayChoices(question);
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextLine().toUpperCase().charAt(0);
+
+            // Checking user choice and comparing it with the correct answer from the pool of correct answers
+            if (choice == answers[question]){
+                System.out.println("✅ CORRECT!\n");
+                score++;
+            }
+            else {
+                System.out.println("❌ WRONG!\n");
+            }
             
 
         }
-
+        System.out.println("***************************\n");
+        System.out.println("You scored " + score + " out of " + answers.length + "\n");
         System.out.println("*************************************************************************************************\n");
         scanner.close();
     }
