@@ -14,7 +14,7 @@ public class Main {
         }
 
         for (Animal animal : animals){
-            System.out.println(animal.toString());
+            System.out.println(animal);
         }
 
         System.out.println("Number of Animals: "+ Animal.numberOfAnimals);
