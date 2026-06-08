@@ -1,5 +1,3 @@
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,13 +6,9 @@ public class MultipleChoiceQuestions {
 
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        int [] randomNumbers = new int[10];
         char[] answers = {'a', 'b', 'b', 'c', 'c', 'c', 'b', 'c', 'c', 'b', 'c', 'b', 'c', 'c', 'd', 'b', 'c', 'd', 'a', 'c',
                           'c', 'b', 'b', 'c', 'b', 'b', 'b', 'c', 'c', 'b'};
         char choice;
-        int randomNumber;
-        int index = 0;
-        int score = 0;
         String doAgain = "yes";
 
         System.out.println("********************************************************************************\n");
@@ -22,6 +16,11 @@ public class MultipleChoiceQuestions {
         System.out.println("********************************************************************************\n");
        
         while (doAgain.equals("yes")){
+
+            int [] randomNumbers = new int[10];
+            int index = 0;
+            int score = 0;
+            int randomNumber;
 
             while(index < 10){
                 randomNumber = random.nextInt(30);
@@ -60,9 +59,10 @@ public class MultipleChoiceQuestions {
             System.out.println("**********************************\n");
             System.out.print("Do you want to do again(yes/no)?: ");
             doAgain = scanner.nextLine().toLowerCase();
+            System.out.println("\n********************************************\n");
             
         }
-        //printing question
+        System.out.println("Have a nice day!");
         
         System.out.println("\n********************************************************************************\n");
         scanner.close();
