@@ -11,13 +11,13 @@ public abstract class Student {
     private static int numOfStudents;
     private String studentEmail;
     public String studentID;
-    private double tuition;
 
     Student(String firstName, String lastName, int age){
         setFirstName(firstName);
         setlastName(lastName);
         setAge(age);
         setStudentEmail();
+        this.studentID = setStudentID();
         numOfStudents++;
     }
     //declaring our abstract method of calculating tuition and student IDs
