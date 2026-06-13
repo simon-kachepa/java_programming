@@ -1,11 +1,16 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class UndergraduateStudent extends Student {
 
     private static int numOfUndergradStudents;
     private int numOfEnrolledCourses;
+    private String year;
+    private List<String> enrolledCourses = new ArrayList<>();
 
     public UndergraduateStudent(String firstName, String lastName, int age){
         super(firstName, lastName, age);
-        this.studentID = setStudentID();
+        setStudentID();
         numOfUndergradStudents++;
     }
 
