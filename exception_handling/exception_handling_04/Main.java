@@ -30,7 +30,10 @@ public class Main {
             }while(guess != randomNumber);
         }
         catch (InputMismatchException e){
-            System.out.println("That was not a number!");
+            System.out.println("Error: That was not a number!");
+        }
+        catch (Exception e){
+            System.out.println("Error: Something went wrong!");
         }
 
         System.out.println("GAME OVER!");
