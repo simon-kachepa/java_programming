@@ -22,7 +22,7 @@ public class Main {
         }
         catch(ArithmeticException e){
             System.out.println("Error caught in divide()");
-            throw new ArithmeticException();
+            throw e;
         }
     }
     
