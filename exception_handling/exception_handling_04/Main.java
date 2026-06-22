@@ -18,7 +18,10 @@ public class Main {
             do {
                 System.out.print("Enter a random number between 1 and 10: ");
                 guess = scanner.nextInt();
-                if (guess > randomNumber){
+                if (guess < 0 || guess > 10){
+                    System.out.println("Number out of range!");
+                }
+                else if (guess > randomNumber){
                     System.out.println("Too high, Try again!");
                 }
                 else if (guess < randomNumber){
