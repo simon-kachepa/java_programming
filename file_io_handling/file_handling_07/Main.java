@@ -24,7 +24,7 @@ public class Main {
             System.out.println("Error: File not found");
         }
         catch(IOException e){
-            System.out.println("Error: Something went wrong!");
+            System.out.println("Error: Could not read from file!");
         }
         System.out.println();
         System.out.println();

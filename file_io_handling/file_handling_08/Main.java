@@ -26,10 +26,10 @@ public class Main {
             System.out.println("Successully wrote to a file");
         }
         catch(FileNotFoundException e){
-            System.out.println("Error: File was not found");
+            System.out.println("Error: File not found");
         }
         catch(IOException e){
-            System.out.println("Error: Something went wrong");
+            System.out.println("Error: Could not write to file");
         }
     }
 }
