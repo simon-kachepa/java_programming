@@ -22,6 +22,13 @@ public class Employee implements Serializable {
         this.salary = salary;
     }
 
+    public String getFullName(){
+        return this.firstName + " " + this.lastName;
+    }
+    public String getSalary(){
+        return String.format("$%.2f",this.salary);
+    }
+
     @Override
     public String toString(){
         return String.format("%03d %s %s %d $%.2f", employeeID, firstName, lastName, age, salary); 

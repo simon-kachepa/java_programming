@@ -23,6 +23,7 @@ public class Main {
         catch(IOException e){
             System.out.println("Error: Could not write to a file");
         }
+        //System.out.println(emp1.getSalary());
 
     }
 }
