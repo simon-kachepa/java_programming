@@ -22,7 +22,7 @@ public class Main {
         try(FileInputStream savedFile = new FileInputStream(filePath);
             ObjectInputStream inputStream = new ObjectInputStream(savedFile)){
                 emp = (Employee)inputStream.readObject();
-                if(!emp.equals(null)){
+                if(emp != null){
                     System.out.println(emp.getFullName());
                     System.out.println(emp.getSalary());
                 }
