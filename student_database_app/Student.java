@@ -7,20 +7,51 @@ public class Student {
     
     private String studentName;
     private String studentID;
-    private String studentYear;
+    private int studentYear;
     private ArrayList<String> enrolledCourses;
     private double balance;
     private static int studentNumber;
+    private String studentLevel;
 
-    public Student(String studentName, String studentYear){
-        this.studentName = studentName;
+    public Student(String studentName, int studentYear, ArrayList<String> courseList){
+        setStudentName(studentName);;
         this.studentYear = studentYear;
         studentNumber++;
-        this.balance = calculateTuition();
-        this.studentID = generateID();
-        this.enrolledCourses = enrollCourses();
+        this.studentLevel = getStudentLevel();
+       // this.balance = calculateTuition();
+        //this.studentID = generateID();
+        this.enrolledCourses = courseList;
     }
 
+    //getters and setters to validate user inputs
+    public String getName(){
+        return this.studentName;
+    }
+    private void setStudentName(String studentName){
+        if(studentName == null || studentName.trim().isEmpty())
+        {
+            throw new IllegalArgumentException("Invalid name: Student name cannot be empty");
+        }
+        this.studentName = studentName;
+    }
+
+    @Override
+    public String toString(){
+        return this.studentName + " " + this.studentLevel;
+    }
+
+    //Getting studentLevel from studentYear;
+    public String getStudentLevel(){
+        switch(this.studentYear){
+            case 1 -> this.studentLevel = "Freshman";
+            case 2 -> this.studentLevel = "Sophomore";
+            case 3 -> this.studentLevel = "Junior";
+            case 4 -> this.studentLevel = "Senior";
+            default -> this.studentLevel = "Unknown";
+        }
+            return this.studentLevel;
+    }
+    /* 
     public String getStudentName(){
         return this.studentName;
     }
@@ -33,26 +64,7 @@ public class Student {
         return this.studentID;
     }
     public ArrayList<String> enrollCourses(){
-        ArrayList<String> enrolledCourses = new ArrayList<>();
-
-        System.out.println("Enter number of courses to enroll for "+ this.studentName + ": ");
-        int numOfCourses = scanner.nextInt();
-        scanner.nextLine();
-        while (numOfCourses-- > 0){
-            System.out.println("Select courses to enroll");
-            System.out.println("1. History 101\n2. Mathematic 101\n3. English 101\n4. Chemistry 101\n5. Computer science 101");
-            int courseChoice = scanner.nextInt();
-            scanner.nextLine();
-
-            switch(courseChoice){
-                case 1 -> enrolledCourses.add("History 101");
-                case 2 -> enrolledCourses.add("Mathematic 101");
-                case 3 -> enrolledCourses.add("English 101");
-                case 4 -> enrolledCourses.add("Chemistry 101");
-                case 5 -> enrolledCourses.add("Computer science 101");
-                default -> System.out.println("Invalid option");
-            }
-        }
+        
         return enrolledCourses;
     }
 
@@ -67,4 +79,5 @@ public class Student {
     public double viewBalance(){
         return this.balance;
     }
+    */
 }
