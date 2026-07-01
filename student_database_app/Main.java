@@ -8,30 +8,82 @@ public class Main {
 
     public static void main(String[] args){
         
-        Student newStudent = handleAddStudent();
+        ArrayList<Student> newList = new ArrayList<>();
+        handleAddStudent(newList);
+        handleAddStudent(newList);
 
-        System.out.println(newStudent);
-        System.out.println(newStudent.getStudentLevel());
+        System.out.println(newList);
         
     }
 
-    public static Student handleAddStudent(){
-        String studentName;
-        int studentYear;
+    public static void handleAddStudent(ArrayList<Student> studentsList){
+       try{
+                String studentName = getStudentName();
+                int studentYear = getStudentYear();
+                ArrayList<String> enrolledCourses = courseEnrollment();
 
-        System.out.print("Enter student Name: ");
-        studentName = scanner.nextLine();
+                Student newStudent = new Student(studentName, studentYear, enrolledCourses);
 
-        System.out.println("Choose student Year");
-        System.out.println("1. Freshman\n2. Junior\n3. Sophomore\n4. Senior");
-        System.out.print("Enter student Year: ");
-        studentYear = scanner.nextInt();
-        scanner.nextLine();
+                studentsList.add(newStudent);
+                System.out.println("\nSUCCESS: Student greated successfully");
+        }
+       catch(IllegalArgumentException e){
+        System.out.println("ERROR: Invalid details for new student");
+       }
+       catch (Exception e){
+        System.out.println("ERROR: Could not add a new student");
+       }
 
-        return new Student(studentName, studentYear, handleCourseEnrollment());
+        
     }
 
-    public static ArrayList<String> handleCourseEnrollment(){
+    //Getting new student name and validating it to enroll the student
+    public static String getStudentName(){
+        String studentName = "";
+
+        while(true){
+            System.out.print("Enter first name: ");
+            studentName = scanner.nextLine().trim();
+
+            if (studentName.isEmpty()){
+                System.out.println("Error: Name cannot be empty!");
+            }
+            else{
+                break;
+            }
+        }
+        return studentName;
+    }
+
+    //Getting student year and validate it
+    public static int getStudentYear(){
+        int studentYear;
+
+        while(true){
+            System.out.println("Choose student Year");
+            System.out.println("1. Freshman\n2. Junior\n3. Sophomore\n4. Senior");
+            System.out.print("Enter student Year (1 - 4): ");
+            if (scanner.hasNextInt()){
+                studentYear = scanner.nextInt();
+                scanner.nextLine();
+
+                if(studentYear >= 1 && studentYear <= 4){
+                    break;
+                }
+                else{
+                    System.out.println("Error: Student Year must be between 1 and 4");
+                }
+            }
+            else{
+                System.out.println("Error: Student Year must be a number");
+            }
+        }
+
+        return studentYear;
+    }
+
+    //Getting enrolled corses by a new student
+    public static ArrayList<String> courseEnrollment(){
         ArrayList<String> availableCourses = new ArrayList<>(List.of("History 101", "Mathematic 101", "English 101", "Chemistry 101", "Computer science 101"));
         ArrayList<String> enrolledCourses = new ArrayList<>();
 
