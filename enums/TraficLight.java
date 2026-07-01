@@ -16,4 +16,14 @@ public enum TraficLight {
     public int getLightValue(){
         return this.lightValue;
     }
+    // static method to geth the value of the enum by its number
+    public static TraficLight fromInt(int conditionNum){
+        for (TraficLight condition: values()){
+            if (condition.lightValue == conditionNum){
+                return condition;
+            }
+            
+        }
+        throw new IllegalArgumentException("Invalid trafic condtion");
+    }
 }
