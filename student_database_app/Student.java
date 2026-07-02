@@ -8,56 +8,67 @@ public class Student {
     private String studentName;
     private String studentID;
     private int studentYear;
+    private StudentLevel studentLevel;
     private ArrayList<String> enrolledCourses;
     private double balance;
     private static int studentNumber;
-    private String studentLevel;
 
     public Student(String studentName, int studentYear, ArrayList<String> courseList){
-        setStudentName(studentName);;
-        this.studentYear = studentYear;
+        setStudentName(studentName);
+        setStudentYear(studentYear);
+        setStudentLevel(studentYear);
         studentNumber++;
-        this.studentLevel = getStudentLevel();
-       // this.balance = calculateTuition();
-        //this.studentID = generateID();
-        this.enrolledCourses = courseList;
+        
+        //this.balance = calculateTuition();
+        //this.studentID = generateStudentID();
+        //this.enrolledCourses = courseList;
     }
 
-    //getters and setters to validate user inputs
+    //getters and setters for student name to validate user inputs
     public String getName(){
         return this.studentName;
     }
     private void setStudentName(String studentName){
         if(studentName == null || studentName.trim().isEmpty())
         {
-            throw new IllegalArgumentException("Invalid name: Student name cannot be empty");
+            throw new IllegalArgumentException("ERROR: Invalid name. Student name cannot be empty");
         }
         this.studentName = studentName;
     }
 
+    //getter and setter for student year to validate it
+    public int getStudentYear(){
+        return this.studentYear;
+    }
+    private void setStudentYear(int studentYear){
+        if (studentYear < 1 || studentYear > 4){
+            throw new IllegalArgumentException("ERROR: Invalid student year. Student year must be between 1 and 4");
+        }
+
+        this.studentYear = studentYear;
+    }
+
+    //Getter and setter for student Level
+    private void setStudentLevel(int studentYear){
+        this.studentLevel = StudentLevel.fromStudentYear(studentYear);
+    }
+    public StudentLevel getStudentLevel(){
+        return this.studentLevel;
+    }
+    
+
     @Override
     public String toString(){
-        return this.studentName + " " + this.studentLevel;
+        return this.studentID + "\t" + this.studentName + "\t" + this.studentLevel;
     }
 
-    //Getting studentLevel from studentYear;
-    public String getStudentLevel(){
-        switch(this.studentYear){
-            case 1 -> this.studentLevel = "Freshman";
-            case 2 -> this.studentLevel = "Sophomore";
-            case 3 -> this.studentLevel = "Junior";
-            case 4 -> this.studentLevel = "Senior";
-            default -> this.studentLevel = "Unknown";
-        }
-            return this.studentLevel;
-    }
-    /* 
-    public String getStudentName(){
-        return this.studentName;
-    }
-
-    public String generateID(){
-        return String.format("%s26%02d", this.studentYear.charAt(0), Student.studentNumber);
+    public String generateStudentID(){
+        //String studentLevel = this.studentLevel;
+        return String.format("%c%d%02d%02d%d",
+                                                StudentLevel.getStudentLevelInitial(), 
+                                                this.studentYear,
+                                                Student.studentNumber,
+                                                2026);
     }
 
     public String getStudentID(){
@@ -69,15 +80,17 @@ public class Student {
     }
 
     public double calculateTuition(){
-        return (600 * enrolledCourses.size());
+        return (600 * this.enrolledCourses.size());
     }
 
     public void payTuition(double amount){
+        if (amount < 0){
+            throw new IllegalArgumentException("ERROR: You cannot pay negative(-) amount");
+        }
         this.balance -= amount;
     }
 
     public double viewBalance(){
         return this.balance;
     }
-    */
 }
