@@ -8,11 +8,57 @@ public class StudentApp {
 
     public static void main(String[] args){
 
-        ArrayList<Student> newList = new ArrayList<>();
+        ArrayList<Student> studentList = new ArrayList<>();
+        int choice = 0;
+
+        System.out.println("\n*******************************************************************************************\n");
+        System.out.println("\t WELCOME TO STUDENT MANAGEMENT SYSTEM");
+        System.out.println("\n*******************************************************************************************\n");
+        
+        
+        do{
+            System.out.println("-- SELECT OPERATION --\n");
+            displayMenu();
+            System.out.print("ENTER YOUR CHOICE: ");
+            if(scanner.hasNextInt()){
+                choice = scanner.nextInt();
+                scanner.nextLine();
+            }
+            else{
+                System.out.println("ERROR: Choice must be a number");
+                scanner.nextLine();
+            }
+
+            switch(choice){
+                case 1 -> {
+                    handleAddStudent(studentList);
+                    System.out.println("****************************************\n");
+                }
+                case 2 -> System.out.println("Remove student");
+                case 3 -> System.out.println("Search student");
+                case 4 -> System.out.println("Display all students");
+                case 5 -> System.out.println("Byee");
+                default -> System.out.println("ERROR: Invalid choice");
+            }
+            System.out.println();
+        }while(choice!=5);
+
+        /* 
         handleAddStudent(newList);
 
         System.out.println(newList.get(0));
-        
+        */
+        System.out.println("\n*******************************************************************************************\n");
+    }
+
+    public static void displayMenu(){
+        System.out.println("""
+                1. Add Student\n
+                2. Remove Student\n
+                3. Search Student\n
+                4. Display all Student\n
+                5. Exit()
+                """);
     }
 
     public static void handleAddStudent(ArrayList<Student> studentsList){
@@ -114,7 +160,6 @@ public class StudentApp {
 
         return enrolledCourses;
     }
-
     
     
 }
