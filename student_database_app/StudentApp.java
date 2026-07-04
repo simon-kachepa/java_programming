@@ -44,9 +44,12 @@ public class StudentApp {
                     handleSearchStudent(studentRegistry);
                     System.out.println("****************************************\n");
                 }
-                case 4 -> studentRegistry.displayAllStudents();
-                case 5 -> System.out.println("-- UNTIL NEXT TIME");
-                default -> System.out.println("ERROR: Invalid choice");
+                case 4 -> {
+                    handleDisplayStudents(studentRegistry);
+                    System.out.println("****************************************\n");
+                }
+                case 5 -> System.out.println("-- UNTIL NEXT TIME --");
+                default -> System.out.println("ERROR: INVALID CHOICE\n");
             }
             System.out.println();
         }while(choice!=5);
@@ -180,6 +183,7 @@ public class StudentApp {
         return enrolledCourses;
     }
 
+    //Method to handle removing of student by ID from the student list
     public static void handleRemoveStudent(StudentRegistry studentRegistry){
 
         String studentID = "";
@@ -196,10 +200,11 @@ public class StudentApp {
         }
     }
 
+    //Method to handle search student using the ID
     public static void handleSearchStudent(StudentRegistry studentRegistry){
 
         String studentID = "";
-        
+
         System.out.print("Enter ID for the student you want to search: ");
         studentID = scanner.nextLine();
         try{
@@ -209,6 +214,11 @@ public class StudentApp {
         catch(IllegalArgumentException e){
             System.out.println("ERROR: " + e.getMessage());
         }
+    }
+
+    //Method to handle the display of students
+    public static void handleDisplayStudents(StudentRegistry studentRegistry){
+        studentRegistry.displayAllStudents();
     }
     
 }
