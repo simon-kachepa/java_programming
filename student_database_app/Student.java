@@ -18,10 +18,9 @@ public class Student {
         setStudentYear(studentYear);
         setStudentLevel(studentYear);
         studentNumber++;
-        
-        //this.balance = calculateTuition();
+        this.enrolledCourses = courseList;
+        setBalance();
         this.studentID = generateStudentID();
-        //this.enrolledCourses = courseList;
     }
 
     //getters and setters for student name to validate user inputs
@@ -72,13 +71,13 @@ public class Student {
     public String getStudentID(){
         return this.studentID;
     }
-    public ArrayList<String> enrollCourses(){
+    public ArrayList<String> getEnrolledCourses(){
         
         return enrolledCourses;
     }
 
-    public double calculateTuition(){
-        return (600 * this.enrolledCourses.size());
+    private void setBalance(){
+        this.balance =  (600 * this.enrolledCourses.size());
     }
 
     public void payTuition(double amount){
@@ -88,7 +87,7 @@ public class Student {
         this.balance -= amount;
     }
 
-    public double viewBalance(){
-        return this.balance;
+    public String viewBalance(){
+        return String.format("$%.2f",this.balance);
     }
 }

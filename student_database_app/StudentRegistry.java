@@ -30,7 +30,7 @@ public class StudentRegistry {
         return studentList.stream()
                 .filter(student -> studentID.equals(student.getStudentID()))
                 .findAny()
-                .orElseThrow(()-> new IllegalArgumentException("Student not found with ID " + studentID));
+                .orElseThrow(()-> new IllegalArgumentException("Student with ID: " + studentID + " not found"));
     }
 
     // Method to print all students from the student list

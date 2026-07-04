@@ -45,14 +45,22 @@ public class StudentApp {
                     System.out.println("****************************************\n");
                 }
                 case 4 -> {
+                    handleViewStudentBalance(studentRegistry);
+                    System.out.println("****************************************\n");
+                }
+                case 5 -> {
+                    handlePayTuition(studentRegistry);
+                    System.out.println("****************************************\n");
+                }
+                case 6 -> {
                     handleDisplayStudents(studentRegistry);
                     System.out.println("****************************************\n");
                 }
-                case 5 -> System.out.println("-- UNTIL NEXT TIME --");
-                default -> System.out.println("ERROR: INVALID CHOICE\n");
+                case 7 -> System.out.println("-- UNTIL NEXT TIME --");
+                default -> System.out.println("ERROR: INVALID CHOICE");
             }
             System.out.println();
-        }while(choice!=5);
+        }while(choice!=7);
 
 
         System.out.println("\n*******************************************************************************************\n");
@@ -63,8 +71,10 @@ public class StudentApp {
                 1. Add Student\n
                 2. Remove Student\n
                 3. Search Student\n
-                4. Display all Student\n
-                5. Exit()
+                4. View Student Balance\n
+                5. Pay Tuition\n
+                6. Display all Student\n
+                7. Exit()
                 """);
     }
 
@@ -219,6 +229,48 @@ public class StudentApp {
     //Method to handle the display of students
     public static void handleDisplayStudents(StudentRegistry studentRegistry){
         studentRegistry.displayAllStudents();
+    }
+
+    // Method to handle view student balance
+    public static void handleViewStudentBalance(StudentRegistry studentRegistry){
+
+        String studentID = "";
+
+        System.out.print("Enter ID for the student you want to View Balance for: ");
+        studentID = scanner.nextLine();
+        try{
+            Student student = studentRegistry.searchStudent(studentID);
+            System.out.println(student.viewBalance());
+        }
+        catch(IllegalArgumentException e){
+            System.out.println("ERROR: " + e.getMessage());
+        }
+
+    }
+
+    //Method to handle paying tuition
+    public static void handlePayTuition(StudentRegistry studentRegistry){
+        
+        String studentID = "";
+
+        System.out.print("Enter ID for the student you want to Pay Tuition for: ");
+        studentID = scanner.nextLine();
+        try{
+            Student student = studentRegistry.searchStudent(studentID);
+            System.out.print("Enter amount to pay: ");
+            if(scanner.hasNextInt()){
+                double amount = scanner.nextInt();
+                student.payTuition(amount);
+                System.out.println("\nSuccessfully paid $" + amount + " for STUDENT: " + student.getName() + " ID: " + studentID);
+            }
+            else{
+                System.out.println("\nERROR: Amount must be a number");
+            }
+            
+        }
+        catch(IllegalArgumentException e){
+            System.out.println("ERROR: " + e.getMessage());
+        }
     }
     
 }
