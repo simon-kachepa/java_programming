@@ -183,7 +183,7 @@ public class StudentApp {
     public static void handleRemoveStudent(StudentRegistry studentRegistry){
 
         String studentID = "";
-        boolean removed = false;
+
         System.out.print("Enter ID for the student you want to remove: ");
         studentID = scanner.nextLine();
         
@@ -199,11 +199,16 @@ public class StudentApp {
     public static void handleSearchStudent(StudentRegistry studentRegistry){
 
         String studentID = "";
+        
         System.out.print("Enter ID for the student you want to search: ");
         studentID = scanner.nextLine();
-
-        studentRegistry.searchStudent(studentID);
-        
+        try{
+            Student student = studentRegistry.searchStudent(studentID);
+            System.out.println(student);
+        }
+        catch(IllegalArgumentException e){
+            System.out.println("ERROR: " + e.getMessage());
+        }
     }
     
 }
