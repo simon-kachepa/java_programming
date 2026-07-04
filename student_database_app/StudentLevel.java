@@ -29,16 +29,4 @@ public enum StudentLevel {
         }
         throw new IllegalArgumentException("Invalid student year");
     } 
-
-    public static char getStudentLevelInitial(){
-        char initial = ' ';
-        for (StudentLevel studentLevel: values()){
-            switch(studentLevel){
-                case FRESHMAN -> initial = 'F';
-                case JUNIOR -> initial = 'J';
-                case SOPHOMORE, SENIOR -> initial = 'S';
-            }
-        }
-        return initial;
-    }
 }

@@ -8,7 +8,7 @@ public class StudentApp {
 
     public static void main(String[] args){
 
-        ArrayList<Student> studentList = new ArrayList<>();
+        StudentRegistry studentRegistry = new StudentRegistry();
         int choice = 0;
 
         System.out.println("\n*******************************************************************************************\n");
@@ -25,29 +25,33 @@ public class StudentApp {
                 scanner.nextLine();
             }
             else{
-                System.out.println("ERROR: Choice must be a number");
+                System.out.println("\nERROR: Choice must be a number\n");
                 scanner.nextLine();
+                continue;
             }
 
             switch(choice){
                 case 1 -> {
-                    handleAddStudent(studentList);
+                    handleAddStudent(studentRegistry);
                     System.out.println("****************************************\n");
                 }
-                case 2 -> System.out.println("Remove student");
-                case 3 -> System.out.println("Search student");
-                case 4 -> System.out.println("Display all students");
-                case 5 -> System.out.println("Byee");
+                case 2 -> {
+                    handleRemoveStudent(studentRegistry);
+                    System.out.println("****************************************\n");
+
+                }
+                case 3 -> {
+                    handleSearchStudent(studentRegistry);
+                    System.out.println("****************************************\n");
+                }
+                case 4 -> studentRegistry.displayAllStudents();
+                case 5 -> System.out.println("-- UNTIL NEXT TIME");
                 default -> System.out.println("ERROR: Invalid choice");
             }
             System.out.println();
         }while(choice!=5);
 
-        /* 
-        handleAddStudent(newList);
 
-        System.out.println(newList.get(0));
-        */
         System.out.println("\n*******************************************************************************************\n");
     }
 
@@ -61,23 +65,38 @@ public class StudentApp {
                 """);
     }
 
-    public static void handleAddStudent(ArrayList<Student> studentsList){
-       try{
-                String studentName = getStudentName();
-                int studentYear = getStudentYear();
-                ArrayList<String> enrolledCourses = courseEnrollment();
+    //creating student from console
+    public static Student createStudentFromConsole(){
+        try{
+            String studentName = getStudentName();
+            int studentYear = getStudentYear();
+            ArrayList<String> enrolledCourses = courseEnrollment();
 
-                Student newStudent = new Student(studentName, studentYear, enrolledCourses);
+            return new Student(studentName, studentYear, enrolledCourses);
+    }
+   catch(IllegalArgumentException e){
+    System.out.println("ERROR: Invalid details for new student");
+    return null;
+   }
+   catch (Exception e){
+    System.out.println("ERROR: Could not add a new student");
+    return null;
+   }
 
-                studentsList.add(newStudent);
-                System.out.println("\nSUCCESS: Student created successfully");
+    }
+
+    //adding the new student to the list
+    public static void handleAddStudent(StudentRegistry studentsList){
+        Student newStudent = createStudentFromConsole();
+        if (newStudent != null){
+            try{
+                    studentsList.addStudent(newStudent);
+                    System.out.println("\nSUCCESS: Student added to registry successfully");
+                }
+            catch(IllegalArgumentException e){
+                System.out.println("ERROR: Could not add the student to registry");
+            }
         }
-       catch(IllegalArgumentException e){
-        System.out.println("ERROR: Invalid details for new student");
-       }
-       catch (Exception e){
-        System.out.println("ERROR: Could not add a new student");
-       }
 
         
     }
@@ -161,5 +180,29 @@ public class StudentApp {
         return enrolledCourses;
     }
     
+    public static void handleRemoveStudent(StudentRegistry studentRegistry){
+
+        String studentID = "";
+        System.out.print("Enter ID for the student you want to remove: ");
+        studentID = scanner.nextLine();
+
+        studentRegistry.removeStudent(studentID);
+        System.out.println("Student removed successfully");
+        
+
+    }
+
+    public static void handleSearchStudent(StudentRegistry studentRegistry){
+
+        String studentID = "";
+        boolean removed = false;
+        System.out.print("Enter ID for the student you want to remove: ");
+        studentID = scanner.nextLine();
+        removed = studentRegistry.removeStudent(studentID);
+        if(removed)
+            System.out.println("Student with ID: " + studentID + " removed successfully");
+        else
+            System.out.println("Student with ID: " + studentID + " not found");
+    }
     
 }

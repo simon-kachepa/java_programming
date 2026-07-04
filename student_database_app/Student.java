@@ -20,7 +20,7 @@ public class Student {
         studentNumber++;
         
         //this.balance = calculateTuition();
-        //this.studentID = generateStudentID();
+        this.studentID = generateStudentID();
         //this.enrolledCourses = courseList;
     }
 
@@ -62,13 +62,11 @@ public class Student {
         return this.studentID + "\t" + this.studentName + "\t" + this.studentLevel;
     }
 
-    public String generateStudentID(){
+    private String generateStudentID(){
         //String studentLevel = this.studentLevel;
-        return String.format("%c%d%02d%02d%d",
-                                                StudentLevel.getStudentLevelInitial(), 
-                                                this.studentYear,
-                                                Student.studentNumber,
-                                                2026);
+        return String.format("R%d%02d",
+                                            this.studentYear,
+                                            Student.studentNumber + 1000);
     }
 
     public String getStudentID(){
