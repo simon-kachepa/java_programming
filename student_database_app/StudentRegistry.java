@@ -17,8 +17,12 @@ public class StudentRegistry {
     }
 
     //Method to handle removing student from the list by ID
-    public boolean removeStudent(String studentID){
-        return studentList.removeIf(student -> studentID.equals(student.getStudentID()));
+    public void removeStudent(String studentID){
+        boolean removed =  studentList.removeIf(student -> studentID.equals(student.getStudentID()));
+
+        if (!removed){
+            throw new IllegalArgumentException("Student with ID: " + studentID + " not found");
+        }
     }
 
     //Method to handle serach student from the student List

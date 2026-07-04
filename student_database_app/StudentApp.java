@@ -179,30 +179,31 @@ public class StudentApp {
 
         return enrolledCourses;
     }
-    
+
     public static void handleRemoveStudent(StudentRegistry studentRegistry){
-
-        String studentID = "";
-        System.out.print("Enter ID for the student you want to remove: ");
-        studentID = scanner.nextLine();
-
-        studentRegistry.removeStudent(studentID);
-        System.out.println("Student removed successfully");
-        
-
-    }
-
-    public static void handleSearchStudent(StudentRegistry studentRegistry){
 
         String studentID = "";
         boolean removed = false;
         System.out.print("Enter ID for the student you want to remove: ");
         studentID = scanner.nextLine();
-        removed = studentRegistry.removeStudent(studentID);
-        if(removed)
+        
+        try {
+            studentRegistry.removeStudent(studentID);
             System.out.println("Student with ID: " + studentID + " removed successfully");
-        else
-            System.out.println("Student with ID: " + studentID + " not found");
+        }
+        catch(IllegalArgumentException e){
+            System.out.println("ERROR: " + e.getMessage());
+        }
+    }
+
+    public static void handleSearchStudent(StudentRegistry studentRegistry){
+
+        String studentID = "";
+        System.out.print("Enter ID for the student you want to search: ");
+        studentID = scanner.nextLine();
+
+        studentRegistry.searchStudent(studentID);
+        
     }
     
 }
