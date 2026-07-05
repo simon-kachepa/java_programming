@@ -42,5 +42,9 @@ public class StudentRegistry {
         studentList.forEach(System.out::println);
     }
 
+    public ArrayList<Student> getStudentList(){
+        return this.studentList;
+    }
+
 
 }
