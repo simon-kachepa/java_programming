@@ -4,8 +4,8 @@ public class StudentRegistry {
     private ArrayList<Student> studentList;
 
     //StudentRegistry constructor to initialise the list
-    public StudentRegistry(){
-        this.studentList = new ArrayList<>();
+    public StudentRegistry(ArrayList<Student> initialStudentsList){
+        this.studentList = initialStudentsList;
     }
 
     //Method to handle adding new student to the list

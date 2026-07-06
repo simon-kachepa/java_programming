@@ -8,7 +8,10 @@ public class StudentApp {
 
     public static void main(String[] args){
 
-        StudentRegistry studentRegistry = new StudentRegistry();
+        StudentDatabase db = new StudentDatabase();
+        ArrayList<Student> initialStudentsList = db.getStudents();
+
+        StudentRegistry studentRegistry = new StudentRegistry(initialStudentsList);
         int choice = 0;
 
         System.out.println("\n*******************************************************************************************\n");
@@ -61,7 +64,6 @@ public class StudentApp {
             }
             System.out.println();
         }while(choice!=7);
-
 
         System.out.println("\n*******************************************************************************************\n");
     }

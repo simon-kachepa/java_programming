@@ -1,10 +1,10 @@
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class Student {
 
-    public Scanner scanner = new Scanner(System.in);
-    
+public class Student implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     private String studentName;
     private String studentID;
     private int studentYear;

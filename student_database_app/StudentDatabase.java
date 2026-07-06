@@ -8,45 +8,34 @@ import java.util.ArrayList;
 
 public class StudentDatabase {
     
-    ArrayList<Student> studentRegistry;
-    String filePath = "/Users/rutendogono/Desktop/students.txt";
-
-    public StudentDatabase(StudentRegistry studentRegistry){
-        this.studentRegistry = studentRegistry.getStudentList();
-    }
+    String filePath = "students.txt";
 
     //Method to get the from a file
-    public void readStudents(){
+    public ArrayList<Student> getStudents(){
         try(FileInputStream inputStream = new FileInputStream(filePath);
             ObjectInputStream objInput = new ObjectInputStream(inputStream)){
 
-                this.studentRegistry = (ArrayList<Student>)objInput.readObject();
+                return (ArrayList<Student>)objInput.readObject();
         }
         catch(FileNotFoundException e){
-            System.out.println("ERROR: File: " + filePath + " not found");
+            System.out.println("LOG: No existing Registry file found. Starting fresh");
+            return new ArrayList<>();
         }
-        catch(ClassNotFoundException e){
-            System.out.println("ERROR: ");
-        }
-        catch(IOException e){
-            System.out.println("ERROR: Could not read students from file: " + filePath);
+        catch(IOException | ClassNotFoundException e){
+            System.out.println("ERROR: Could not read students from file " + filePath + ". Starting fresh");
+            return new ArrayList<>();
         }
     }
 
     //Method to save student list to a file
-    public void saveStudents(){
+    public void saveStudents(ArrayList<Student> updatedStudentList){
         try(FileOutputStream outputStream = new FileOutputStream(filePath);
             ObjectOutputStream objOut = new ObjectOutputStream(outputStream)){
-                objOut.writeObject(this.studentRegistry);
-        }
-        catch(FileNotFoundException e){
-            System.out.println("ERROR: File: " + filePath + " not found");
+                objOut.writeObject(updatedStudentList);
+                System.out.println("SUCCESS: DATABASE successfully saved to file");
         }
         catch(IOException e){
-            System.out.println("ERROR: Could not save File: " + filePath);
-        }
-        catch(Exception e){
-            System.out.println("ERROR: Something went wrong");
+            System.out.println("ERROR: Could not save DATABASE to File: " + filePath);
         }
     }
 }
