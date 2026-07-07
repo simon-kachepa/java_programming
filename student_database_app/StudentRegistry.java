@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class StudentRegistry {
     private ArrayList<Student> studentList;
+    private static boolean isChanged = false;
 
     //StudentRegistry constructor to initialise the list
     public StudentRegistry(ArrayList<Student> initialStudentsList){
@@ -14,6 +15,7 @@ public class StudentRegistry {
             throw new IllegalArgumentException("ERROR: Student invalid");
         }
         studentList.add(newStudent);
+        isChanged = true;
     }
 
     //Method to handle removing student from the list by ID
@@ -23,6 +25,8 @@ public class StudentRegistry {
         if (!removed){
             throw new IllegalArgumentException("Student with ID: " + studentID + " not found");
         }
+
+        isChanged = true;
     }
 
     //Method to handle serach student from the student List
@@ -45,6 +49,11 @@ public class StudentRegistry {
     public ArrayList<Student> getStudentList(){
         return this.studentList;
     }
-
+    public static void setHasChanges(boolean changeStatus){
+        isChanged = changeStatus;
+    }
+    public static boolean hasChanges(){
+        return isChanged;
+    }
 
 }

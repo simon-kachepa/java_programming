@@ -65,6 +65,10 @@ public class StudentApp {
             System.out.println();
         }while(choice!=7);
 
+        if(StudentRegistry.hasChanges()){
+            db.saveStudents(studentRegistry.getStudentList());
+        }
+
         System.out.println("\n*******************************************************************************************\n");
     }
 

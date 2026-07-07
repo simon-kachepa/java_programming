@@ -85,6 +85,7 @@ public class Student implements Serializable {
             throw new IllegalArgumentException("ERROR: You cannot pay negative(-) amount");
         }
         this.balance -= amount;
+        StudentRegistry.setHasChanges(true);
     }
 
     public String viewBalance(){
