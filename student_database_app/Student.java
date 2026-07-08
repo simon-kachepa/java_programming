@@ -58,7 +58,7 @@ public class Student implements Serializable {
 
     @Override
     public String toString(){
-        return this.studentID + "\t" + this.studentName + "\t" + this.studentLevel;
+        return this.studentID + "\t" + this.studentName + "\t\t" + this.studentLevel + "\t$" + this.balance;
     }
 
     private String generateStudentID(){
