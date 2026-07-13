@@ -8,6 +8,7 @@ public class EmailApp {
     public static void main(String[] args) {
 
         ConsoleInputHandler ui = new ConsoleInputHandler();
+        Email email = new Email("Tino", "Kache");
 
         ui.displayWelcomeMessage();
         int choice = 0;
