@@ -9,6 +9,7 @@ public class EmailApp {
 
         ConsoleInputHandler ui = new ConsoleInputHandler();
         Email email = new Email("Tino", "Kache");
+        email.getInfo();
 
         ui.displayWelcomeMessage();
         int choice = 0;

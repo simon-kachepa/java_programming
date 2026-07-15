@@ -63,5 +63,33 @@ public class ConsoleInputHandler {
                 return -1;
             }
     }
+
+    public String getFirstName(){
+        while(true){
+            System.out.println("Enter employee's first name: ");
+            String firstName = scanner.nextLine().trim();
+
+            if(firstName.isEmpty()){
+                System.out.println("ERROR: First name can not be empty");
+            }
+            else{
+                return firstName;
+            }
+        }
+    }
+
+    public String getLastName(){
+        while(true){
+            System.out.println("Enter employee's first name: ");
+            String lastName = scanner.nextLine().trim();
+
+            if(lastName.isEmpty()){
+                System.out.println("ERROR: First name can not be empty");
+            }
+            else{
+                return lastName;
+            }
+        }
+    }
     
 }
