@@ -27,7 +27,6 @@ public class EmailApp {
                 case 7 -> System.out.println("Display Mailbox Capacity");
                 case 8 -> System.out.println("Display All Emails");
                 case 9 -> running = false;
-                default -> System.out.println("ERROR: Choice must be between 1 and 9");
             } 
 
         }
