@@ -23,8 +23,13 @@ public class EmailManager {
     }
 
     public void removeEmail(Email email){
-        emailRegistry.remove(email);
-        isChange = true;
+        if (emailRegistry.contains(email)){
+            emailRegistry.remove(email);
+            isChange = true;
+        }
+        else{
+            throw new IllegalArgumentException("ERROR: Could not find email: " + email);
+        }
     }
     
     public void searchEmail(String lastName, int departmentCode){
@@ -33,7 +38,7 @@ public class EmailManager {
         toList();
 
         if (matches.isEmpty()){
-            System.out.println("ERROR: no matching email found");
+            throw new IllegalArgumentException("ERROR: no matching email found");
         }
         else {
             matches.forEach(System.out::println);
