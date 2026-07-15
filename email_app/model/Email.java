@@ -112,4 +112,12 @@ public class Email {
         "\nDepartment: " + this.department + " " + 
         "\nEmail: " + this.email);
     }
+
+    public String getLastName(){
+        return this.lastName;
+    }
+
+    public int getDepartmentCode(){
+        return this.departmentCode;
+    }
 }
