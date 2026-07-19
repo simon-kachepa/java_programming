@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import model.Email;
@@ -6,6 +8,9 @@ import view.ConsoleInputHandler;
 public class EmailApp {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
+
+        List<Email> emailList = new ArrayList<>();
+        EmailService 
 
         ConsoleInputHandler ui = new ConsoleInputHandler();
         Email email = new Email("Tino", "Kache");

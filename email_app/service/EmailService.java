@@ -25,4 +25,15 @@ public class EmailService {
             System.out.println("ERROR: Could not add new email to registry");
         }
     }
+
+    public void removeEmail(Email email){
+        try{
+            emailRegistry.removeEmail(email);
+            System.out.println("SUCCESS: Email successfully removed");
+        }
+        catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
+
+    }
 }

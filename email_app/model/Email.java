@@ -117,6 +117,11 @@ public class Email {
         return this.lastName;
     }
 
+    @Override
+    public String toString(){
+        return this.email;
+    }
+
     public int getDepartmentCode(){
         return this.departmentCode;
     }
