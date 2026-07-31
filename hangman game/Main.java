@@ -1,14 +1,38 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        String word = "mangoe";
+        String filePath = "fruits.txt";
+        List<String> words = new ArrayList<>();
+        String word;
         int wrongGuesses = 0;
         Scanner scanner = new Scanner(System.in);
         List<Character> wordState = new ArrayList<>();
+        Random random = new Random();
+
+        try(FileReader freader = new FileReader(filePath);
+            BufferedReader breader = new BufferedReader(freader)){
+                String line;
+                while((line = breader.readLine()) != null){
+                    words.add(line);
+                }
+            }
+        catch(FileNotFoundException e){
+            System.out.println("Could not locate file: " + filePath);
+        }
+        catch(IOException e){
+            System.out.println("OOPS: Something Went wrong");
+        }
+
+        word = words.get(random.nextInt(words.size()));
 
         // To initialise the wordState to underscores since we haven't found any matching character.
         for(int i = 0; i < word.length(); i++){
@@ -58,9 +82,6 @@ public class Main {
             System.out.println("GAME OVER!");
             System.out.println("The word was: " + word);
         }
-
-
-
 
         scanner.close();
         System.out.println("\n************************************************************************************\n");
