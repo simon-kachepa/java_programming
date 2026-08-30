@@ -5,6 +5,7 @@ public class Methods02 {
     public static void main(String[] args){
 
         int num1, num2;
+        
         System.out.print("Enter first number: ");
         num1 = scanner.nextInt();
         System.out.print("Enter second number: ");
@@ -31,6 +32,7 @@ public class Methods02 {
                 return isPrimeNumber = false;
             }
         }
+        
         return isPrimeNumber;
     }
 }
