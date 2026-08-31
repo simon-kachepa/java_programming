@@ -41,11 +41,13 @@ public class ConsoleInputHandler {
         if(scanner.hasNextInt()){
             int code = scanner.nextInt();
             scanner.nextLine();
+            
             return code;
         }
         else{
             System.out.println("ERROR: Department code must be a number");
             scanner.nextLine();
+            
             return -1;
         }   
     }
@@ -55,6 +57,7 @@ public class ConsoleInputHandler {
             if(scanner.hasNextInt()){
                 int choice = scanner.nextInt();
                 scanner.nextLine();
+                
                 return choice;
             }
             else{
