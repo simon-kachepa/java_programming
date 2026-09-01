@@ -16,7 +16,7 @@ public class StudentManagementSystem {
     public void searchStudent(String studentID){
         System.out.print("\nSearch results: ");
         for (Student student : students){
-            if (student.studentID.equals(studentID)){
+            if (student.getStudentID().equals(studentID)){
                 System.out.println(student);
                 return;
             }

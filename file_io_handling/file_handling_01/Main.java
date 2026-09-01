@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args){
         
-        String path = "/Users/rutendogono/Desktop";
+        String path = "/Users/kachepasimon/Desktop";
         String fileName = "text.txt";
         String filePath = path + "/" + fileName;
     
