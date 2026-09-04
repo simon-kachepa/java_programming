@@ -36,6 +36,10 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
         Predicate<Integer> isEven = num -> num % 2 == 0;
         System.out.println(isEven.test(6));
 
+        //Consumer<T> ==> accepts a single input argument and returns no result
+        Consumer<String> name = n -> System.out.println("Hello " + n);
+        name.accept("Simon Kachepa");
+
     }
 
 }
