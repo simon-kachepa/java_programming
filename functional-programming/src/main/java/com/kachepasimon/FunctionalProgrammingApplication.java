@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 @SpringBootApplication
 public class FunctionalProgrammingApplication implements CommandLineRunner {
@@ -39,6 +40,13 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
         //Consumer<T> ==> accepts a single input argument and returns no result
         Consumer<String> name = n -> System.out.println("Hello " + n);
         name.accept("Simon Kachepa");
+
+        //Supplier<T> ==> Represents a supplier of results.
+        Supplier<Integer> result = () -> 100;
+        System.out.println(result.get());
+
+        Supplier<String> stringSupplier = () -> "Hello from Supplier!";
+        System.out.println(stringSupplier.get());
 
     }
 
