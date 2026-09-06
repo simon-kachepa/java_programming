@@ -17,8 +17,11 @@ public class StreamsLearningApplication implements CommandLineRunner {
     public void run(String... args) {
         List<Car> cars = MockData.getCars();
 
-        // Practice Stream:
+        System.out.println("=== Practice Stream ===");
 
-        System.out.println("=== Cars newer than 2020 ===");
+        //Print all cars from the list
+        cars.forEach(System.out::println);
+
+
     }
 }
