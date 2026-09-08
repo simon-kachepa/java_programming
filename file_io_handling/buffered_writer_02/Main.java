@@ -6,13 +6,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /*
- * Program to use BufferedWriter to append text to an existing file
+ * Program to use BufferedWriter to append text to an existing file located in the local machine
  */
 
 public class Main {
     
     public static void main(String[] args){
-        String filePath = "/Users/rutendogono/Desktop/myTest.txt";
+        String filePath = "/Users/kachepasimon/Desktop/myTest.txt";
         String myText = """
                         **this is to append**
                         Keep going
