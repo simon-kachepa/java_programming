@@ -9,7 +9,7 @@ public class Main {
     
     public static void main(String[] args){
 
-        String filePath = "/Users/rutendogono/Desktop/myTest.txt";
+        String filePath = "/Users/kachepasimon/Desktop/myTest.txt";
         try(BufferedReader reader = new BufferedReader(new FileReader(filePath))){
             String line;
             while((line = reader.readLine()) != null){
