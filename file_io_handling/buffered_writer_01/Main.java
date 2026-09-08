@@ -12,7 +12,7 @@ public class Main {
     
     public static void main(String[] args){
         
-        String filePath = "/Users/rutendogono/Desktop/myTest.txt";
+        String filePath = "/Users/kachepasimon/Desktop/myTest.txt";
         String text = """
                         It pays to love what you do
                         Also, do what you love
