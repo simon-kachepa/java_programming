@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args){
         
-        String filePath = "/Users/rutendogono/Desktop/test.txt";
+        String filePath = "/Users/kachepasimon/Desktop/test.txt";
         File file = new File(filePath);
 
         if(file.exists()){
