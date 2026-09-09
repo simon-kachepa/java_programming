@@ -5,13 +5,13 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /*
- * Program to read data from a file
+ * Program to read data from a file located in local machine
  */
 
 public class Main {
 
     public static void main(String[] args){
-        String filePath = "/Users/rutendogono/Desktop/test.txt";
+        String filePath = "/Users/kachepasimon/Desktop/test.txt";
         File file = new File(filePath);
         System.out.println("\n****************************************************\n");
         try(Scanner scanner = new Scanner(file)){
