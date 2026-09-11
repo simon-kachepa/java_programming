@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Main {
     
     public static void main(String[] args){
-        String oldFilePath = "/Users/rutendogono/Desktop/photo.png";
+        String oldFilePath = "/Users/kachepasimon/Desktop/photo.png";
         String newFilePath = "/Users/rutendogono/Desktop/copy.png";
 
         try(FileInputStream inputStream = new FileInputStream(oldFilePath);
