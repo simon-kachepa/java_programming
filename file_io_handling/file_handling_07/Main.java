@@ -12,7 +12,7 @@ public class Main {
     
     public static void main(String[] args){
 
-        String filePath = "/Users/rutendogono/Desktop/test.txt";
+        String filePath = "/Users/kachepasimon/Desktop/test.txt";
         try(FileInputStream inputStream = new FileInputStream(filePath)){
             
             int i;
