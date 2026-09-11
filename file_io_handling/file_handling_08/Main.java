@@ -18,7 +18,7 @@ public class Main {
                         I will keep going
                         """;
 
-        String filePath = "/Users/rutendogono/Desktop/doc.txt";
+        String filePath = "/Users/kachepasimon/Desktop/doc.txt";
 
         try(FileOutputStream outputStream = new FileOutputStream(filePath)){
             
