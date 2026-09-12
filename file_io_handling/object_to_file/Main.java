@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 public class Main {
     
     public static void main(String[] args){
-        String filePath = "/Users/rutendogono/Desktop/employees.bin";
+        String filePath = "/Users/kachepasimon/Desktop/employees.bin";
 
         Employee emp1 = new Employee("John", "Kachepa", 26, 80000);
 
