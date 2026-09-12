@@ -16,7 +16,7 @@ public class Main {
     
     public static void main(String[] args){
         ArrayList<Employee> empList = new ArrayList<>();
-        String filePath = "/Users/rutendogono/Desktop/employees.txt";
+        String filePath = "/Users/kachepasimon/Desktop/employees.txt";
 
         try(FileInputStream fInputStream = new FileInputStream(filePath);
             ObjectInputStream oInputStream = new ObjectInputStream(fInputStream)){
