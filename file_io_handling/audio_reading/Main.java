@@ -18,7 +18,7 @@ public class Main {
     
     public static void main(String[] args){
         
-        String filePath = "/Users/rutendogono/Desktop/jah_prayzah.wav";
+        String filePath = "/Users/kachepasimon/Desktop/jah_prayzah.wav";
         File file = new File(filePath);
 
         try(AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
