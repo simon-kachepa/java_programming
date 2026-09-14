@@ -14,7 +14,7 @@ public class Main {
     
     public static void main(String[] args){
         ArrayList<Employee> empList = new ArrayList<>();
-        String filePath = "/Users/rutendogono/Desktop/employees.txt";
+        String filePath = "/Users/kachepasimon/Desktop/employees.txt";
         int numOfEmployees = 0;
         String empFirstName;
         String empLastName;
