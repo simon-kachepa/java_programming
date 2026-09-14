@@ -17,7 +17,7 @@ public class Main {
         
         Employee emp = null;
 
-        String filePath = "/Users/rutendogono/Desktop/employees.bin";
+        String filePath = "/Users/kachepasimon/Desktop/employees.bin";
 
         try(FileInputStream savedFile = new FileInputStream(filePath);
             ObjectInputStream inputStream = new ObjectInputStream(savedFile)){
