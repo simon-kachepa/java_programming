@@ -10,7 +10,7 @@ public abstract class Student {
     private int year = 2026;
     private static int numOfStudents;
     private String studentEmail;
-    public String studentID;
+    private String studentID;
 
     Student(String firstName, String lastName, int age){
         setFirstName(firstName);
